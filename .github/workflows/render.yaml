@@ -1,0 +1,22 @@
+# render.yaml
+# Configuration for deploying a web service in Render
+
+services:
+  - type: web
+    name: my-web-service
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    autoDeploy: true
+    branch: main
+    envVars:
+      - key: NODE_VERSION
+        value: "18"
+
+databases:
+  - name: my-database
+    plan: free
+    databaseName: mydb
+    user: myuser
+    ipAllowList: []
